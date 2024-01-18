@@ -47,6 +47,7 @@ public class GameOfLife {
 			System.out.println("Generation " + gen + ":");
 			print(board);
 			board = evolve(board);
+			System.out.println();
 		}
 	}
 		
@@ -93,14 +94,14 @@ public class GameOfLife {
 	// Uses the cellValue(board,i,j) function to compute the value of each 
 	// cell in the new board. Returns the new board.
 	public static int[][] evolve(int[][] board) {
-		int[][] check = new int[board.length][board[0].length];
-		for(int i = 1; i < check.length -1; i++){
-			for(int j = 1; j < check[0].length - 1; j++){
-				check[i][j] = cellValue(board, i, j);	
+		int[][] newBoard = new int[board.length][board[0].length];
+		for(int i = 1; i < newBoard.length -1; i++){
+			for(int j = 1; j < newBoard[0].length - 1; j++){
+				newBoard[i][j] = cellValue(board, i, j);	
 		}
 	}
 	
-		return check;
+		return newBoard;
 	}
 
 	// Returns the value that cell (i,j) should have in the next generation.
@@ -154,7 +155,7 @@ public class GameOfLife {
 		for(int i = 1; i < arr.length -1; i++){
 			System.out.println();
 			for(int j = 1; j < arr[0].length - 1; j++){
-				System.out.print(arr[i][j] + " ");
+				System.out.print("%3s", arr[i][j] + " ");
 			}
 		}
 	}
